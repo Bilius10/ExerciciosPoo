@@ -1,0 +1,7 @@
+Crie uma hierarquia de classes para representar um sistema de veículos:
+
+Crie uma classe Veiculo com os atributos marca, modelo e o método acelerar().
+Crie subclasses Carro e Moto que sobrescrevem o método acelerar().
+Adicione uma interface Eletromovel, que tenha o método carregarBateria(), e implemente-a na classe CarroEletrico, que herda de Carro.
+
+No método principal, crie uma lista de objetos do tipo Veiculo e adicione instâncias de Carro, Moto e CarroEletrico. Chame o método acelerar() para todos os veículos e o método carregarBateria() quando aplicável.
