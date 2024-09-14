@@ -1,0 +1,5 @@
+Implemente uma interface chamada Pagamento, que define o método processarPagamento().
+
+Crie duas classes que implementem a interface: CartaoCredito e Pix.
+
+No método principal, crie uma lista do tipo Pagamento, adicione instâncias de CartaoCredito e Pix, e invoque o método processarPagamento() para cada uma.
