@@ -1,0 +1,6 @@
+Crie uma hierarquia de classes que represente diferentes tipos de animais:
+
+Crie uma classe base chamada Animal, com o método emitirSom().
+Crie duas subclasses, Cachorro e Gato, que sobrescrevem o método emitirSom().
+
+No método principal, crie uma lista de objetos do tipo Animal, adicione instâncias de Cachorro e Gato e, usando polimorfismo, faça com que cada animal emita seu som.
