@@ -37,7 +37,7 @@ public class ProductTester {
                     System.out.print("SALDO: ");
                     double saldo = teclado.nextDouble();
 
-                    usuario = new Usuario(idade, nome, saldo);
+                    usuario = new Usuario(idade, nome, saldo, carrinho);
                     break;
                 case 2:
 
@@ -49,8 +49,9 @@ public class ProductTester {
                     System.out.println("Pagar carrinho: 1-Sim 2-Não");
                     int pagar = teclado.nextInt();
 
-                    if (pagar == 1) {
+                    if (pagar == 1 && usuario.getSaldo() > valor) {
                         usuario.setSaldo(usuario.getSaldo()-valor);
+                        usuario.getCarrinhoProduto().clear();
                     }
                     break;
                 case 3:
@@ -60,7 +61,7 @@ public class ProductTester {
                     System.out.print("SELECIONE O ID DO PRODUTO: ");
                     pagar = teclado.nextInt();
 
-                    usuario.setCarrinhoProduto(produtos.stream().filter(produto -> produto.getNumeroItem() == pagar).toList());
+                    usuario.adicionarLista(produtos.get(pagar-1));
                     break;
                 case 4:
                     System.out.println(usuario.toString());
