@@ -8,10 +8,16 @@ public class Usuario {
     private double saldoCarrinho;
     private List<Produto> carrinhoProduto;
 
-    public Usuario(int idade, String nome, double saldo) {
+    public Usuario(int idade, String nome, double saldo, List<Produto> carrinhoProduto) {
         this.idade = idade;
         this.nome = nome;
         this.saldo = saldo;
+        this.carrinhoProduto = carrinhoProduto;
+    }
+
+    public void adicionarLista(Produto produto){
+        this.carrinhoProduto.add(produto);
+
     }
 
     @Override
@@ -29,8 +35,8 @@ public class Usuario {
         return carrinhoProduto;
     }
 
-    public void setCarrinhoProduto(List<Produto> carrinhoProduto) {
-        this.carrinhoProduto = carrinhoProduto;
+    public void setCarrinhoProduto(List<Produto> list) {
+        this.carrinhoProduto = list;
     }
 
     public int getIdade() {
