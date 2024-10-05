@@ -5,30 +5,29 @@ import java.util.Random;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        Random random = new Random();
-        Usuario usuario1 = new Usuario("João", "RH");
-        Usuario usuario2 = new Usuario("Pedro", "Diretor");
-        Usuario usuario3 = new Usuario("Claudia", "Estagio");
-        List<String> documentos = new ArrayList<>();
+        List<String> objects1 = new ArrayList<>();
+        List<String> objects2 = new ArrayList<>();
 
-        Impressora impressora = new Impressora("Impressor Geral", documentos);
-        Thread thread = new Thread(impressora);
 
-        thread.start();
-        for (int i = 0; i < 5; i++) {
+        Impressora impressora1 = new Impressora("Impressora Sala", objects1);
+        Impressora impressora2 = new Impressora("Impressora geral", objects2);
 
-            usuario1.setNomeDocumento(sortear());
-            usuario2.setNomeDocumento(sortear());
-            usuario3.setNomeDocumento(sortear());
+        Thread thread1 = new Thread(impressora1, "Impressora Sala");
+        Thread thread2 = new Thread(impressora2, "Impressora Geral");
 
-            impressora.addLista(usuario1.getNomeDocumento());
-            impressora.addLista(usuario2.getNomeDocumento());
-            impressora.addLista(usuario3.getNomeDocumento());
+        thread1.start();
+        thread2.start();
 
+        while (true){
+            objects1.add(sortear());
+            objects2.add(sortear());
+            Thread.sleep(1000);
         }
-        
+
+
+
     }
 
     public static  String sortear(){
