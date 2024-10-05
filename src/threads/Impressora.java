@@ -10,23 +10,32 @@ public class Impressora implements Runnable{
         this.fila = fila;
     }
 
+
     @Override
     public void run() {
-        if(fila.size()>1){
-            System.out.println("Imprimindo "+fila.get(0));
+        while (true){
+
             try {
-                Thread.sleep(1000);
+                imprimir();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("Imprimido "+fila.get(0));
-            fila.remove(0);
+
         }
     }
 
-    public void addLista(String documento){
-        fila.add(documento);
+
+    public synchronized void imprimir() throws InterruptedException {
+
+        if(!this.fila.isEmpty()){
+            System.out.println("Nome: "+this.nomeImpressora+" Documento: "+fila.get(0));
+            fila.remove(0);
+            Thread.sleep(2000);
+
+        }
+
     }
+
 
     public String getNomeImpressora() {
         return nomeImpressora;
@@ -43,4 +52,6 @@ public class Impressora implements Runnable{
     public void setFila(List<String> fila) {
         this.fila = fila;
     }
+
+
 }
